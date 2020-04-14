@@ -12,6 +12,8 @@ def main():
                 super().__init__(in_Peso, in_Hambre, in_Sed, in_Vacunado)
         def MostrarNombre(self):
             print(self.Raza)
+        def mpeso(self):
+            print(self.Peso)
     
     #Se define las características que comparten las estaciones de atención automáticas
     #class EstaciónAutomática():
@@ -20,5 +22,6 @@ def main():
        # class Vacunatorio():
     vacaobjeto=Vaca(500, True, 0, False)
     vacaobjeto.MostrarNombre()
+    vacaobjeto.mpeso()
     
 main()
