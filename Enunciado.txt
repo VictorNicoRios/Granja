@@ -21,12 +21,12 @@ Gallina
     Cuando come no se observa ningún cambio, siempre pesa 4 kg.
     Siempre tiene hambre, nunca tiene sed, nunca conviene vacunarla.
     Quiero saber, para una gallina, cuántas veces fue a comer.
-    Como se ve, importa cuánto come un animal cuando come (excepto para las gallinas), pero no cuánto bebe cuando bebe.
+
+Como se ve, importa cuánto come un animal cuando come (excepto para las gallinas), pero no cuánto bebe cuando bebe.
 
 Hay varios dispositivos de atención automática a los animales:
     Comederos normales: cada comedero da de comer una cantidad fija que varía para cada comedero, puede atender a los animales con hambre que pesen menos de lo que soporta el comedero, que también es un valor que depende del comedero. Un comedero normal necesita recarga si le quedan menos de 10 raciones, cuando se lo recarga se le cargan 30 raciones.
-    Comederos inteligente: le dan de comer a un animal su peso / 100. Pueden atender a cualquier animal con hambre. 
-    Un comedero inteligente necesita recarga si le quedan menos de 15 kg, al recargarlo se lo lleva hasta su capacidad máxima (que se indica para cada comedero). 
+    Comederos inteligente: le dan de comer a un animal su peso / 100. Pueden atender a cualquier animal con hambre. Un comedero inteligente necesita recarga si le quedan menos de 15 kg, al recargarlo se lo lleva hasta su capacidad máxima (que se indica para cada comedero). 
     Bebederos: dan de beber a un animal, pueden atender a los animales con sed. Un bebedero necesita recarga cada 20 animales que atiende, lo que se le hace al recargarlo no se registra en el sistema (sí que se lo recarga para volver a contar desde ahí 20 animales atendidos). 
     Vacunatorios: vacunan a un animal, pueden atender a los animales que conviene vacunar. Un vacunatorio necesita recarga si se queda sin vacunas, al atenderlo se le recargan 50 vacunas.
 
