@@ -46,8 +46,7 @@ class Vaca(Animal):
         super().__init__(self.Nombre, self.Raza, self.Peso_Kg, self.Hambre, self.Sed, self.Vacunado)
     
     def Comer(self, in_Peso_de_Racion):
-        #Para saber cúanto pesa lo que come se le manda el peso de la unidad de comida x la cantidad de unidades que va a comer.
-        #El peso de lo que come se agrega al peso de la vaca
+        #El peso de lo que come dividido 3 se agrega al peso de la vaca
         self.Peso_Kg += (in_Peso_de_Racion)/3
         self.Hambre = self.Peso_Kg <= 200
         self.Sed = (in_Peso_de_Racion) >= 200
