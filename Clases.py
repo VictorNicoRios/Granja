@@ -247,24 +247,3 @@ class EstaciónDeServicio():
         
         if inAnimal.Raza=='Cerdo':
             inAnimal.MostrarMaxComido()
-
-
-#                                                                  <---test--->
-
-Vaquita=Vaca('Lola')
-Cerdito=Cerdo('Piggy')
-Gallinita=Gallina('Turuleca')
-
-ComederoA1 = ComederoAutomatico(500)
-ComederoM1 = ComederoManual(5, 350)
-Bebedero1 = Bebedero()
-Vacunatorio1 = Vacunatorio()
-
-Estación_YPF = EstaciónDeServicio(ComederoA1, Bebedero1, Vacunatorio1)
-Estación_Shell = EstaciónDeServicio(ComederoM1, Bebedero1, Vacunatorio1)
-
-Estación_YPF.AtenderA(Vaquita)
-
-Estación_Shell.AtenderA(Cerdito)
-
-Estación_YPF.AtenderA(Gallinita)
