@@ -1,7 +1,7 @@
-#                                                          <----- Campo de Jorgito ----->
+#                                                  <----- Campo de Jorgito ----->
 
 
-#                                                                  <--Animales-->
+#                                                          <--Animales-->
 
 class Animal:
     def __init__(self, in_Nombre, in_Raza, in_Peso, in_Hambre, in_Sed, in_Vacunado):
@@ -130,7 +130,7 @@ class Gallina(Animal):
         self.AnimalBeber()
         print('[Gallina: ', self.Nombre, ']: *Bebió*')
 
-#                                                            <--Atención automática-->
+#                                                     <--Atención automática-->
 
 class Comedero:
     def __init__(self, in_Tipo_Dispositivo, in_Raciones_Restantes, in_Cant_Raciones, in_Cant_Maxima):
@@ -153,7 +153,7 @@ class ComederoManual(Comedero):
         #Si la variable Peso_Kg (Peso en Kg del animal) es mayor al peso máximo de animal que soporta el comedero (valor que se definió al instanciarlo)
         if In_Animal.Peso_Kg <= self.Peso_Animal_Soportado:
             #Ejecuta la función comer de ese objeto
-            print('[',self.TipoDispositivo,']: *Alimentando al animal "', In_Animal.Nombre, '"* en',self.TipoDispositivo)
+            print('[',self.TipoDispositivo,']: *Alimentando al animal "', In_Animal.Nombre, '"*')
             In_Animal.Comer(self.Peso_Racion_Dada)
             if self.Raciones_Restantes < 10:
                 self.Recargar_Comedero()
@@ -174,7 +174,7 @@ class ComederoAutomatico(Comedero):
     #Se ejecuta si el objeto animal introducido tiene hambre
         if In_Animal.Hambre == True:
             self.Cant_Raciones = In_Animal.Peso_Kg/100
-            print('[', self.TipoDispositivo,']: *Alimentando al animal "', In_Animal.Nombre, '"* en',self.TipoDispositivo)
+            print('[', self.TipoDispositivo,']: *Alimentando al animal "', In_Animal.Nombre, '"*')
             In_Animal.Comer(self.Peso_Racion_Dada)
             if self.Raciones_Restantes < 15:
                 self.Recargar_Comedero()
@@ -200,7 +200,7 @@ class Vacunatorio:
         inAnimal.Vacunar()
 
 
-#                                                            <--Estación de Servicio-->
+#                                                    <--Estación de Servicio-->
 
 class EstaciónDeServicio():
     def __init__(self, inComedero, inBebedero, inVacunatorio):

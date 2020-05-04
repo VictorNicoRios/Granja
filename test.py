@@ -1,7 +1,7 @@
 from Clases import *
 
 
-#                                                                 <---Modelo--->
+#                                                          <---Modelo--->
 
 
 #<--Animales-->
@@ -25,7 +25,7 @@ Estación_de_Servicio_Auto = EstaciónDeServicio(ComederoA1, Bebedero1, Vacunato
 Estación_de_Servicio_Manual = EstaciónDeServicio(ComederoM1, Bebedero1, Vacunatorio1)
 
 
-#                                                                  <---test--->
+#                                                           <---test--->
 
 Estación_de_Servicio_Auto.AtenderA(Vaquita)
 
