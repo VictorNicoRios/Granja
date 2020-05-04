@@ -153,19 +153,18 @@ class ComederoManual(Comedero):
         #Si la variable Peso_Kg (Peso en Kg del animal) es mayor al peso máximo de animal que soporta el comedero (valor que se definió al instanciarlo)
         if In_Animal.Peso_Kg <= self.Peso_Animal_Soportado:
             #Ejecuta la función comer de ese objeto
-            print('[',self.TipoDispositivo,']: *Alimentando al animal "', In_Animal.Nombre, '"*')
+            print('[',self.TipoDispositivo,']: *Alimentando al animal "', In_Animal.Nombre, '"* en',self.TipoDispositivo)
             In_Animal.Comer(self.Peso_Racion_Dada)
+            if self.Raciones_Restantes < 10:
+                self.Recargar_Comedero()
         else:
             print('[Comedero Manual]: Peso del animal "', In_Animal.Nombre, '" no soportado para este comedero. Por favor, elija otro comedero')
             return TypeError
     
     def Recargar_Comedero(self):
-        if self.Raciones_Restantes < 10:
-            self.Raciones_Restantes += 30
-            print('[Comedero Manual]: Se han recargado 30 raciones')
-        else:
-            print('[Comedero Manual]: Este comedero tadavía tiene raciones suficientes (Raciones restantes:',self.Raciones_Restantes, '), por tanto no se recarga')
-    
+        self.Raciones_Restantes += 30
+        print('[Comedero Manual]: Se han recargado 30 raciones')
+
 class ComederoAutomatico(Comedero):
     def __init__(self, in_Cant_Maxima):
         self.Cant_Maxima=in_Cant_Maxima
@@ -175,18 +174,16 @@ class ComederoAutomatico(Comedero):
     #Se ejecuta si el objeto animal introducido tiene hambre
         if In_Animal.Hambre == True:
             self.Cant_Raciones = In_Animal.Peso_Kg/100
-            print('[', self.TipoDispositivo,']: *Alimentando al animal "', In_Animal.Nombre, '"*')
+            print('[', self.TipoDispositivo,']: *Alimentando al animal "', In_Animal.Nombre, '"* en',self.TipoDispositivo)
             In_Animal.Comer(self.Peso_Racion_Dada)
+            if self.Raciones_Restantes < 15:
+                self.Recargar_Comedero()
         else:
             print('[Comedero Automático]: No puedo alimentar al animal "',In_Animal.Nombre,'" porque no tiene hambre')
 
     def Recargar_Comedero(self):
-        if self.Raciones_Restantes < 15:
-            self.Raciones_Restantes == self.Cant_Maxima
-            print('[Comedero Automático]: Se han recargado al máximo de raciones')
-        else:
-            print('[Comedero Automático]: Este comedero tadavía tiene raciones suficientes, por tanto no se recarga')
-            return TypeError
+        self.Raciones_Restantes == self.Cant_Maxima
+        print('[Comedero Automático]: Se han recargado al máximo de raciones')
 
 class Bebedero:
     def __init__(self):
@@ -215,31 +212,9 @@ class EstaciónDeServicio():
     def AtenderA(self, inAnimal):
         for x in range(len(self.Maquinas)):
             try:
-                if self.Maquinas[x].TipoDispositivo == 'Comedero Manual':
-                    print('[Estación de Servicio]: *Intentando alimentar a "',inAnimal.Nombre, '" en "', self.Maquinas[x].TipoDispositivo, '*')
-                    try:
-                        self.Maquinas[x].AtenderAnimal(inAnimal)
-                        if self.Maquinas[x].Raciones_Restantes <= 0:
-                            self.Maquinas[x].Recargar_Comedero()
-                    
-                    except TypeError:
-                        print('[Estación de Servicio]: Operación fallida')
-
-                elif self.Maquinas[x].TipoDispositivo == 'Comedero Automatico':
-                    print('[Estación de Servicio]: *Intentando alimentar a "',inAnimal.Nombre, '" en "', self.Maquinas[x].TipoDispositivo, '*')
-                    try:
-                        self.Maquinas[x].AtenderAnimal(inAnimal)
-                        if self.Maquinas[x].Raciones_Restantes <= 0:
-                            self.Maquinas[x].Recargar_Comedero()
-                    
-                    except TypeError:
-                        print('[Estación de Servicio]: Operación fallida')
-
-                else:
-                    self.Maquinas[x].AtenderAnimal(inAnimal)
-            
+                self.Maquinas[x].AtenderAnimal(inAnimal)
             except SystemError:
-                print('[Estación de Servicio]: Operación fallida')
+                print('[Estación de Servicio]: Operación fallida en',self.Maquinas[x].TipoDispositivo)
     
         if inAnimal.Raza=='Vaca':
             inAnimal.Caminar()
